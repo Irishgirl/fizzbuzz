@@ -4,6 +4,7 @@ table {
 th, td {
   padding: 5px;
   border: solid 1px black;
+  font-family: Helvetica, sans-serif;
 }
 td:first-child {
   text-align: right;

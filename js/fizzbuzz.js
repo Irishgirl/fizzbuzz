@@ -1,17 +1,14 @@
 function fizzbuzz () {
-  var i = 0,
-      tbody = document.getElementById('fizzbuzz'),
-      fbString = '',
-      tr, td;
+  var tbody = document.getElementById('fizzbuzz'),
+      fbString,
+      tr,
+      td,
+      i;
   
   for (i = 1; i <= 100; i++) {
-    fbString = '';
-    if (i % 3 === 0) {
-      fbString = 'Fizz';
-    }
-    if (i % 5 === 0) {
-      fbString = fbString + 'Buzz';
-    }
+    fbString = (i % 3 === 0) ? 'Fizz' : '';
+    fbString += (i % 5 === 0) ? 'Buzz' : '';
+    
     tr = document.createElement('tr');
     td = document.createElement('td');
     td.innerHTML = i;

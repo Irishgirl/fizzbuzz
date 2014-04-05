@@ -11,14 +11,39 @@ button {
   display: none;
 }
 
+.fizz:before {
+  content: "Fizz";
+}
+
+.buzz:after {
+  content: "Buzz";
+}
+
 table {
   border-collapse: collapse;
 }
 
 th, td {
   padding: 5px;
-  border: solid 1px black;
+  border: 1px solid #888;
   font-family: Helvetica, sans-serif;
+}
+
+th {
+  background-color: #000;
+  color: #fff;
+  border: 2px solid black;
+}
+
+td:nth-child(odd) {
+  border-left: 2px solid black;
+}
+
+td:nth-child(even) {
+  border-right: 2px solid black;
+}
+tr:nth-child(even) {
+  background-color: #ffc;
 }
 
 td:first-child {

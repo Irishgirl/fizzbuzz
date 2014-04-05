@@ -1,29 +1,27 @@
 function fizzbuzz () {
   var tbody = document.getElementById('fizzbuzz'),
-      fbString,
-      tr,
-      td,
-      i;
-
-  /* for older browsers IE < 10, use this:
-  document.getElementById('action').className = 'hidden';
-  document.getElementById('display').className = '';
-  */
+      iv,
+      i = 1;
 
   document.getElementById('action').classList.add('hidden');
   document.getElementById('display').classList.remove('hidden');
 
-  for (i = 1; i <= 100; i++) {
-    fbString = (i % 3 === 0) ? 'Fizz' : '';
-    fbString += (i % 5 === 0) ? 'Buzz' : '';
+  // http://www.imdb.com/title/tt0099810
+  // http://www.imdb.com/title/tt0099810/quotes?item=qt0458337
+  function oneFizzBuzzOnlyPlease () {
+    var tr = document.createElement('tr'),
+        td = tr.appendChild(document.createElement('td'));
+
+    tr.insertBefore(document.createElement('td'), td);
+    tr.firstChild.innerHTML = i;
+    td.innerHTML = ((i % 3) ? '' : 'Fizz')
+                 + ((i % 5) ? '' : 'Buzz');
     
-    tr = document.createElement('tr');
-    td = document.createElement('td');
-    td.innerHTML = i;
-    tr.appendChild(td);
-    td = document.createElement('td');
-    td.innerHTML = fbString;
-    tr.appendChild(td);
-    tbody.appendChild(tr);
+    tbody.insertBefore(tr, tbody.firstChild);
+
+    if (++i > 100) {
+      clearInterval(iv);
+    }
   }
+  iv = setInterval(oneFizzBuzzOnlyPlease, 500);
 }

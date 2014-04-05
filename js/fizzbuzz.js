@@ -1,5 +1,6 @@
 function fizzbuzz () {
   var tbody = document.getElementById('fizzbuzz'),
+      rows = [],
       iv,
       i = 1;
 
@@ -9,19 +10,27 @@ function fizzbuzz () {
   // http://www.imdb.com/title/tt0099810
   // http://www.imdb.com/title/tt0099810/quotes?item=qt0458337
   function oneFizzBuzzOnlyPlease () {
-    var tr = document.createElement('tr'),
-        td = tr.appendChild(document.createElement('td'));
+    var tr, td, row = (i - 1) % 20;
 
-    tr.insertBefore(document.createElement('td'), td);
-    tr.firstChild.innerHTML = i;
-    td.innerHTML = ((i % 3) ? '' : 'Fizz')
-                 + ((i % 5) ? '' : 'Buzz');
+    if (row >= rows.length) {
+      tr = rows[row] = document.createElement('tr');
+      tbody.appendChild(tr);
+    } else {
+      tr = rows[row];
+    }
+
+    td = tr.appendChild(document.createElement('td'));
+    td.innerHTML = i;
+    td = tr.appendChild(document.createElement('td'));
+
+    td.className = [
+      (i % 3) ? '' : 'fizz',
+      (i % 5) ? '' : 'buzz'
+    ].join(' ');
     
-    tbody.insertBefore(tr, tbody.firstChild);
-
     if (++i > 100) {
       clearInterval(iv);
     }
   }
-  iv = setInterval(oneFizzBuzzOnlyPlease, 500);
+  iv = setInterval(oneFizzBuzzOnlyPlease, 250);
 }

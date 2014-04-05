@@ -1,11 +1,26 @@
+button {
+  background-color: #820000;
+  color: #fff;
+  border: 1px solid black;
+  font-family: Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.hidden {
+  display: none;
+}
+
 table {
   border-collapse: collapse;
 }
+
 th, td {
   padding: 5px;
   border: solid 1px black;
   font-family: Helvetica, sans-serif;
 }
+
 td:first-child {
   text-align: right;
 }

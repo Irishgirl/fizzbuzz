@@ -46,6 +46,6 @@ tr:nth-child(even) {
   background-color: #ffc;
 }
 
-td:first-child {
+td:nth-child(odd) {
   text-align: right;
 }
